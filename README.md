@@ -1,5 +1,5 @@
-# cloud
+# @taon-dev/cloud
 
-Hello from Standalone Project
+Taon cloud releated/separated parts. 
 
        

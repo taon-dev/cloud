@@ -14,7 +14,7 @@ export const BUILD_BASE_HREF = '';
 /**
  *  This value can be change in taon.jsonc (overrideNpmName)
  */
-export const PROJECT_NPM_NAME = 'cloud';
+export const PROJECT_NPM_NAME = '@taon-dev/cloud';
 /**
  * Taon version from you project taon.json
  */
