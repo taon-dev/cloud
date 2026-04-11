@@ -110,7 +110,7 @@
     ".taon": true,
     ".tnp": true
   },
-  "window.title": "npm/taon-dev/cloud  [ ${activeEditorShort} ]",
+  "window.title": "taon-dev/cloud () [ ${activeEditorShort}]",
   "files.exclude": {
     "_changelog": true,
     ".sass-cache": true,

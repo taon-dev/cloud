@@ -8,6 +8,14 @@ export * from './constants';
 export * from './models'; 
 export * from './my-organization-proj'; 
 export * from './start-cli'; 
+export * from './instances/instances-api.service'; // @browser
+export * from './instances/instances.context'; 
+export * from './instances/instances.controller'; 
+export * from './instances/instances.defaults-values'; 
+export * from './instances/instances.repository'; 
+export * from './instances/instances.terminal-ui'; 
+export * from './instances/instances'; 
+export * from './instances/instances.worker'; 
 export * from './processes/processes-api.service'; // @browser
 export * from './processes/processes.context'; 
 export * from './processes/processes.controller'; 
