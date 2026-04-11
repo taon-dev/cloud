@@ -4,6 +4,8 @@
 // set property "shouldGenerateAutogenIndexFile: false" 
 // in taon.jsonc of your project. 
 export * from './build-info._auto-generated_'; 
+export * from './constants'; 
+export * from './models'; 
 export * from './my-organization-proj'; 
 export * from './start-cli'; 
 export * from './processes/processes-api.service'; // @browser
@@ -17,3 +19,6 @@ export * from './processes/processes';
 export * from './processes/processes.utils'; 
 export * from './processes/processes.worker.controller'; 
 export * from './processes/processes.worker'; 
+export * from './traefik/traefik.models'; 
+export * from './traefik/traefik.provider'; 
+export * from './traefik/treafik-service.provider'; 
