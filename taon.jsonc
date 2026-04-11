@@ -33,7 +33,7 @@
   "packageJsonOverride": {
     "author": "Dfilipiak",
     "description": "Description for cloud. Hello world!",
-    "private": true,
+    "private": false,
     "scripts": {},
   },
 }
