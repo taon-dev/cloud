@@ -15,7 +15,7 @@ import {
 import { CoreModels, UtilsNetwork } from 'tnp-core/src';
 import {
   globalSpinner,
-  taonBasePathToGlobalDockerTemplates,
+  taonBasePathToGlobalDockerTemplatesFn,
 } from 'tnp-core/src';
 import {
   BaseCliWorker,
@@ -74,7 +74,7 @@ export class TraefikProvider {
   public get pathToTraefikComposeDestCwd(): string {
     //#region @backendFunc
     const pathToComposeDest = crossPlatformPath([
-      taonBasePathToGlobalDockerTemplates,
+      taonBasePathToGlobalDockerTemplatesFn(),
       path.basename(this.pathToTraefikComposeSourceTemplateFilesCwd()),
     ]);
     return pathToComposeDest;
