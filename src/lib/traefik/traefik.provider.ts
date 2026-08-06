@@ -1,6 +1,4 @@
 //#region imports
-import { promisify } from 'util';
-
 import { config, LibTypeEnum } from 'tnp-core/src';
 import {
   _,
@@ -88,7 +86,7 @@ export class TraefikProvider {
     /**
      * Path to traefik docker compose template files
      */
-    private readonly pathToTraefikComposeSourceTemplateFilesCwd: ()=> string,
+    private readonly pathToTraefikComposeSourceTemplateFilesCwd: () => string,
   ) {}
 
   //#region protected methods
@@ -262,6 +260,7 @@ export class TraefikProvider {
     if (options.waitUntilHealthy) {
       options.maxTries = options.maxTries || 50;
     }
+    const { promisify } = require('util');
     const execAsync = promisify(child_process.exec);
 
     globalSpinner.instance.start(`Traefik health: checking...`);
@@ -532,6 +531,7 @@ export class TraefikProvider {
       return;
     }
     console.log(`🚀 Restarting Traefik ${this.isDevMode ? 'DEV' : 'PROD'}...`);
+    const { promisify } = require('util');
     const execAsync = promisify(child_process.exec);
     try {
       await execAsync(
@@ -577,6 +577,7 @@ export class TraefikProvider {
     await this.makeSureTraefikNetworkCreated();
 
     console.log(`🚀 Starting Traefik ${this.isDevMode ? 'DEV' : 'PROD'}...`);
+    const { promisify } = require('util');
     const execAsync = promisify(child_process.exec);
 
     Helpers.removeFolderIfExists(this.pathToTraefikComposeDestCwd);
@@ -634,6 +635,7 @@ export class TraefikProvider {
 
     await this.deleteTraefikNetwork();
 
+    const { promisify } = require('util');
     const execAsync = promisify(child_process.exec);
     const localDevFileBasename = `traefik-compose.local-dev.yml`;
     const prodFileBasename = `traefik-compose.yml`;
