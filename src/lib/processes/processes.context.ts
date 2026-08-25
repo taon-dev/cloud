@@ -19,5 +19,5 @@ export const ProcessesContext = Taon.createContextTemplate(() => ({
   database: true,
   entities: { Processes },
   controllers: { ProcessesController, ProcessesWorkerController },
-  ...getBaseCliWorkerDatabaseConfig(appId, 'DROP_DB+MIGRATIONS'),
+  ...getBaseCliWorkerDatabaseConfig(appId, 'DROP_DB__RUN_MIGRATIONS'),
 }));

@@ -74,5 +74,5 @@ export const InstancesContext = Taon.createContextTemplate(() => ({
     migrations: true,
   },
   controllers: { InstancesController },
-  ...getBaseCliWorkerDatabaseConfig(appId, 'DROP_DB+MIGRATIONS'),
+  ...getBaseCliWorkerDatabaseConfig(appId, 'DROP_DB__RUN_MIGRATIONS'),
 }));
