@@ -68,7 +68,7 @@ export class InstancesTerminalUI extends BaseCliWorkerTerminalUI<InstancesWorker
 
           const id = await UtilsTerminal.select({
             question: 'Select instance to delete',
-            autocomplete: true,
+            autocomplete: true, // @ts-ignore
             choices: [{ name: '- back -', value: '' }, ...choices],
           });
           const instance = id && list.find(l => l.id === id);
@@ -86,7 +86,7 @@ export class InstancesTerminalUI extends BaseCliWorkerTerminalUI<InstancesWorker
               })
             ) {
               try {
-                Helpers.taskStarted('Deleting instance');
+                Helpers.taskStarted('Deleting instance');// @ts-ignore
                 await ctrl.delete(instance.id).request();
                 await UtilsTerminal.pressAnyKeyToContinueAsync({
                   message:

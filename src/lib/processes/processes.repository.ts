@@ -42,7 +42,7 @@ export class ProcessesRepository extends TaonBaseRepository<Processes> {
 
     //#region @websqlFunc
     const proc = await this.findOne({
-      where: {
+      where: {// @ts-ignore
         id: processId?.toString(),
       },
     });
@@ -255,7 +255,7 @@ export class ProcessesRepository extends TaonBaseRepository<Processes> {
 
     //#region @backendFunc
     options = options || {};
-    const proc = await this.findOne({
+    const proc = await this.findOne({// @ts-ignore
       where: { id: processId?.toString() },
     });
     if (!proc) {
