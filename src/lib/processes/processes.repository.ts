@@ -26,7 +26,6 @@ import {
   className: 'ProcessesRepository',
 })
 export class ProcessesRepository extends TaonBaseRepository<Processes> {
-
   //#region fields and getters
   entityClassResolveFn: () => typeof Processes = () => Processes;
 
@@ -39,16 +38,14 @@ export class ProcessesRepository extends TaonBaseRepository<Processes> {
   public async getByProcessID(
     processId: number | string,
   ): Promise<Processes | null> {
-
     //#region @websqlFunc
     const proc = await this.findOne({
       where: {
-        id: processId?.toString(),
+        id: processId?.toString() as any,
       },
     });
     return proc;
     //#endregion
-
   }
   //#endregion
 
@@ -60,7 +57,6 @@ export class ProcessesRepository extends TaonBaseRepository<Processes> {
     cwd: string;
     command: string;
   }): Promise<Processes | null> {
-
     //#region @websqlFunc
     const proc = await this.findOne({
       where: {
@@ -70,7 +66,6 @@ export class ProcessesRepository extends TaonBaseRepository<Processes> {
     });
     return proc;
     //#endregion
-
   }
   //#endregion
 
@@ -81,7 +76,6 @@ export class ProcessesRepository extends TaonBaseRepository<Processes> {
       processName?: string;
     },
   ): Promise<void> {
-
     //#region @backendFunc
     options = options || {};
 
@@ -185,11 +179,9 @@ export class ProcessesRepository extends TaonBaseRepository<Processes> {
         );
       });
       //#endregion
-
     });
 
     //#endregion
-
   }
   //#endregion
 
@@ -200,7 +192,6 @@ export class ProcessesRepository extends TaonBaseRepository<Processes> {
       deleteAfterKill?: boolean;
     },
   ): Promise<void> {
-
     //#region @websqlFunc
     options = options || {};
     await this.getAndUpdateProcess(processId, proc => {
@@ -233,7 +224,6 @@ export class ProcessesRepository extends TaonBaseRepository<Processes> {
       }, 1000);
     });
     //#endregion
-
   }
   //#endregion
 
@@ -252,11 +242,10 @@ export class ProcessesRepository extends TaonBaseRepository<Processes> {
       executeCallbackWhenNoProcess?: boolean;
     },
   ): Promise<void> {
-
     //#region @backendFunc
     options = options || {};
     const proc = await this.findOne({
-      where: { id: processId?.toString() },
+      where: { id: processId?.toString() as any },
     });
     if (!proc) {
       if (options.skipThrowingErrorWhenNoProcess) {
@@ -274,10 +263,8 @@ export class ProcessesRepository extends TaonBaseRepository<Processes> {
       'outputLast40lines' as keyof Processes,
     );
     //#endregion
-
   }
   //#endregion
 
   //#endregion
-
 }

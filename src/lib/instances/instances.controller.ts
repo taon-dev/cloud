@@ -19,33 +19,26 @@ export class InstancesController extends TaonBaseCliWorkerController {
 
   @GET()
   getEntities(): Taon.Response<Instances[]> {
-
     //#region @backendFunc
     return async (req, res) => {
       // @ts-ignore
       return this.instancesRepository.find();
     };
     //#endregion
-
   }
 
   @DELETE()
-  delete(@Query('id') id: string): Taon.Response<Instances> {
-
+  delete(@Query('id') id: string | number): Taon.Response<Instances> {
     //#region @backendFunc
     return async (req, res) => {
       return this.instancesRepository.deleteById(id);
     };
     //#endregion
-
   }
 
   @PUT()
-  insertEntity(
-    @Body() entity: Instances,
-  ): Taon.Response<Instances> {
+  insertEntity(@Body() entity: Instances): Taon.Response<Instances> {
     return async (req, res) => {
-
       //#region @backendFunc
 
       const instance = await this.instancesRepository.save(
@@ -53,7 +46,6 @@ export class InstancesController extends TaonBaseCliWorkerController {
       );
       return instance;
       //#endregion
-
     };
   }
 }

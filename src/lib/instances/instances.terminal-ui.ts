@@ -87,7 +87,7 @@ export class InstancesTerminalUI extends BaseCliWorkerTerminalUI<InstancesWorker
             ) {
               try {
                 Helpers.taskStarted('Deleting instance');
-                await ctrl.delete(instance.id).request();
+                await ctrl.delete(instance.id as any).request();
                 await UtilsTerminal.pressAnyKeyToContinueAsync({
                   message:
                     'Instance deleted. Press any key to go back to main menu',
