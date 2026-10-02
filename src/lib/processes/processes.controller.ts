@@ -139,7 +139,7 @@ export class ProcessesController extends TaonBaseCrudController<Processes> {
       request: () => {
         // console.log(`Checking if process ${processId} deleted...`);
         return this.getByProcessID(processId).request({
-          timeout: 1000,
+          signal: AbortSignal.timeout(1000),
         });
       },
       loopRequestsOnBackendError: opt => {
@@ -166,7 +166,7 @@ export class ProcessesController extends TaonBaseCrudController<Processes> {
       actionName: `Waiting until process ${processId} stopped`,
       request: () => {
         return this.getByProcessID(processId).request({
-          timeout: 1000,
+          signal: AbortSignal.timeout(1000),
         });
       },
       poolingInterval: 1000,
