@@ -257,7 +257,7 @@ export class ProcessesRepository extends TaonBaseRepository<Processes> {
       throw new Error(`No process with id ${processId}`);
     }
     await callback(proc);
-    await this.update(proc);
+    await this.shallowUpdate(proc);
     this.ctx.realtimeServer.triggerEntityPropertyChanges(
       proc,
       'outputLast40lines' as keyof Processes,
