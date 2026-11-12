@@ -12,7 +12,7 @@ import { ProcessesController } from './processes.controller';
 //#endregion
 
 export class ProcessesApiService extends TaonBaseAngularService {
-  protected processesController = this.injectController(ProcessesController);
+  protected processesController = this.inject(ProcessesController);
 
   // public get allProcesses$(): Observable<Processes[]> {
   //   return this.processesController

@@ -22,7 +22,7 @@ export class ProcessesController extends TaonBaseCrudController<Processes> {
   entityClassResolveFn: () => typeof Processes = () => Processes;
 
   // @ts-ignore
-  private processesRepository = this.injectCustomRepo(ProcessesRepository);
+  private processesRepository = this.inject(ProcessesRepository);
 
   //#region get by process id
   @GET()

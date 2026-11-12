@@ -17,7 +17,7 @@ const localhostInstanceName = 'Localhost';
   className: 'MigrationLocalhost',
 })
 class MigrationLocalhost extends TaonBaseMigration {
-  instanceRepository = this.injectCustomRepository(InstancesRepository);
+  instanceRepository = this.inject(InstancesRepository);
 
   async up(queryRunner: QueryRunner): Promise<any> {
     console.log(

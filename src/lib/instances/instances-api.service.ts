@@ -15,7 +15,7 @@ import { TaonBaseAngularService } from 'taon/src';
 //#endregion
 
 export class InstancesApiService extends TaonBaseAngularService {
-  private instancesController = this.injectController(InstancesController); ;
+  private instancesController = this.inject(InstancesController); ;
 
   public get allMyEntities$(): Observable<Instances[]> {
     return this.instancesController
