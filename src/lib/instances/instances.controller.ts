@@ -13,9 +13,7 @@ import { GET, PUT, DELETE, Query, Body } from 'taon/src';
   className: 'InstancesController',
 })
 export class InstancesController extends TaonBaseCliWorkerController {
-  // @ts-ignore
-  instancesRepository: InstancesRepository = // @ts-ignore
-    this.inject(InstancesRepository);
+  instancesRepository: InstancesRepository = this.inject(InstancesRepository);
 
   @GET()
   getEntities(): Taon.Response<Instances[]> {

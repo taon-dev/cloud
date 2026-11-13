@@ -21,7 +21,6 @@ import { ProcessesRepository } from './processes.repository';
 export class ProcessesController extends TaonBaseCrudController<Processes> {
   entityClassResolveFn: () => typeof Processes = () => Processes;
 
-  // @ts-ignore
   private processesRepository = this.inject(ProcessesRepository);
 
   //#region get by process id
@@ -30,7 +29,6 @@ export class ProcessesController extends TaonBaseCrudController<Processes> {
     @Query('processId')
     processId: number | string,
   ): Taon.Response<Processes> {
-
     //#region @websqlFunc
     return async (req, res) => {
       if (!processId) {
@@ -47,7 +45,6 @@ export class ProcessesController extends TaonBaseCrudController<Processes> {
       return proc;
     };
     //#endregion
-
   }
   //#endregion
 
@@ -59,7 +56,6 @@ export class ProcessesController extends TaonBaseCrudController<Processes> {
     @Query('command')
     command: string,
   ): Taon.Response<Processes> {
-
     //#region @websqlFunc
     return async (req, res) => {
       if (!cwd) {
@@ -81,7 +77,6 @@ export class ProcessesController extends TaonBaseCrudController<Processes> {
       return proc;
     };
     //#endregion
-
   }
   //#endregion
 
@@ -92,7 +87,6 @@ export class ProcessesController extends TaonBaseCrudController<Processes> {
     processId: number | string,
     @Query('processName') processName?: string,
   ): Taon.Response<void> {
-
     //#region @websqlFunc
     return async (req, res) => {
       if (!processId) {
@@ -103,7 +97,6 @@ export class ProcessesController extends TaonBaseCrudController<Processes> {
       });
     };
     //#endregion
-
   }
   //#endregion
 
@@ -115,7 +108,6 @@ export class ProcessesController extends TaonBaseCrudController<Processes> {
     @Query('deleteAfterKill')
     deleteAfterKill?: boolean,
   ): Taon.Response<void> {
-
     //#region @websqlFunc
     return async (req, res) => {
       if (!processId) {
@@ -126,13 +118,11 @@ export class ProcessesController extends TaonBaseCrudController<Processes> {
       });
     };
     //#endregion
-
   }
   //#endregion
 
   //#region wait until deployment removed
   async waitUntilProcessDeleted(processId: string | number): Promise<void> {
-
     //#region @backendFunc
     await this._waitForProperStatusChange<Processes>({
       actionName: `Waiting until process ${processId} is removed`,
@@ -154,13 +144,11 @@ export class ProcessesController extends TaonBaseCrudController<Processes> {
       },
     });
     //#endregion
-
   }
   //#endregion
 
   //#region wait until deployment removed
   async waitUntilProcessStopped(processId: string | number): Promise<void> {
-
     //#region @backendFunc
     await this._waitForProperStatusChange<Processes>({
       actionName: `Waiting until process ${processId} stopped`,
@@ -179,8 +167,6 @@ export class ProcessesController extends TaonBaseCrudController<Processes> {
       },
     });
     //#endregion
-
   }
   //#endregion
-
 }
